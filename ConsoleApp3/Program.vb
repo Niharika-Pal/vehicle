@@ -4,7 +4,6 @@ Module Program
     Class VEHICLE
         Protected speed As Double
         Protected n As String
-        Protected mile As Double
         Protected type As String
 
         Public Sub New()
@@ -23,25 +22,28 @@ Module Program
             Console.WriteLine("type of vehicle is " & type)
         End Sub
 
-        Public Overridable Sub mileage(distance As Double, litres As Double)
-            mile = distance / litres
-            Console.WriteLine("mileage is " & mile)
-        End Sub
 
     End Class
 
     Class Bmw
         Inherits VEHICLE
+        Protected mile As Double
 
 
         Public Sub New(name, sped)
             MyBase.New("bmw", 40)
         End Sub
 
-        Public Overrides Sub mileage(distance As Double, litres As Double)
-            MyBase.mileage(165, 6)
+
+        Public Sub mileage(distance As Double, litres As Double)
+            mile = distance / litres
+            Console.WriteLine("mileage is " & mile)
         End Sub
-         
+
+        Public Function get_value() As Integer
+            Return mile
+        End Function
+
 
         Public Overrides Sub typ(typ As String)
             MyBase.typ("automatic")
@@ -50,16 +52,22 @@ Module Program
 
     Class ferrari
         Inherits VEHICLE
+        Public mil As Double
 
 
         Public Sub New(name, sped)
             MyBase.New("ferrari", 60)
         End Sub
 
-        Public Overrides Sub mileage(distance As Double, litres As Double)
-            MyBase.mileage(178, 6)
+
+        Public Sub mileage(distance As Double, litres As Double)
+            mil = distance / litres
+            Console.WriteLine("mileage is " & mil)
         End Sub
 
+        Public Function val() As Integer
+            Return mil
+        End Function
 
         Public Overrides Sub typ(typ As String)
             MyBase.typ("automatic")
@@ -69,11 +77,31 @@ Module Program
 
 
     Sub main()
+        Dim mee As Double
+        Dim meet As Integer
         Console.WriteLine("Information OF BMW")
         Dim c1 As Bmw = New Bmw("Bmw", 40)
         c1.typ("automatic")
-
         c1.mileage(165, 5)
+        mee = c1.get_value()
+
+
+
+        Console.WriteLine("Information OF ferrari")
+        Dim c2 As ferrari = New ferrari("Bmw", 50)
+        c2.typ("automatic")
+        c2.mileage(175, 5)
+        meet = c2.val()
+
+
+        If mee > meet Then
+            Console.WriteLine("bmw has more mileage than ferrari so its more econoical")
+        Else
+            Console.WriteLine("ferrari is more economical with high mileage")
+
+        End If
+
         Console.ReadLine()
     End Sub
+
 End Module
