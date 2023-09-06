@@ -37,7 +37,7 @@ Module Program
 
         Public Sub mileage(distance As Double, litres As Double)
             mile = distance / litres
-            Console.WriteLine("mileage is " & mile)
+            Console.WriteLine("Mileage is : " & mile)
         End Sub
 
         Public Function get_value() As Integer
@@ -62,7 +62,7 @@ Module Program
 
         Public Sub mileage(distance As Double, litres As Double)
             mil = distance / litres
-            Console.WriteLine("mileage is " & mil)
+            Console.WriteLine("Mileage is : " & mil)
         End Sub
 
         Public Function val() As Integer
@@ -73,31 +73,64 @@ Module Program
             MyBase.typ("automatic")
         End Sub
     End Class
-    
 
+    Class audi
+        Inherits VEHICLE
+        Public mil As Double
+
+
+        Public Sub New(name, sped)
+            MyBase.New("AUDI", 70)
+        End Sub
+
+
+        Public Sub mileage(distance As Double, litres As Double)
+            mil = distance / litres
+            Console.WriteLine("Mileage is " & mil)
+        End Sub
+
+        Public Function val() As Integer
+            Return mil
+        End Function
+
+        Public Overrides Sub typ(typ As String)
+            MyBase.typ("automatic")
+        End Sub
+    End Class
 
     Sub main()
         Dim mee As Double
-        Dim meet As Integer
-        Console.WriteLine("Information OF BMW")
+        Dim meet As Double
+        Dim meetu As Double
+        Console.WriteLine("INFORMATION OF BMW : " & vbCrLf)
         Dim c1 As Bmw = New Bmw("Bmw", 40)
         c1.typ("automatic")
         c1.mileage(165, 5)
         mee = c1.get_value()
+        Console.WriteLine("")
 
-
-
-        Console.WriteLine("Information OF ferrari")
+        Console.WriteLine("INFORMATION OF FERRARI : " & vbCrLf)
         Dim c2 As ferrari = New ferrari("Bmw", 50)
         c2.typ("automatic")
         c2.mileage(175, 5)
         meet = c2.val()
+        Console.WriteLine("")
 
+        Console.WriteLine("INFORMATION OF AUDI : " & vbCrLf)
+        Dim c3 As audi = New audi("AUDI", 70)
+        c3.typ("Automatic")
+        c3.mileage(185, 5)
+        meetu = c3.val()
+        Console.WriteLine("")
 
         If mee > meet Then
-            Console.WriteLine("bmw has more mileage than ferrari so its more econoical")
+            If mee > meetu Then
+                Console.WriteLine("BMW has more mileage than ferrari so its more econoical.")
+            End If
+        ElseIf meet > meetu Then
+            Console.WriteLine("Ferrari is more economical with high mileage.")
         Else
-            Console.WriteLine("ferrari is more economical with high mileage")
+            Console.WriteLine("Audi is more economical with high mileage.")
 
         End If
 
