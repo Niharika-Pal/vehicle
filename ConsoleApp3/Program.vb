@@ -103,14 +103,14 @@ Module Program
         Dim meet As Double
         Dim meetu As Double
         Console.WriteLine("INFORMATION OF BMW : " & vbCrLf)
-        Dim c1 As Bmw = New Bmw("Bmw", 40)
+        Dim c1 As Bmw = New Bmw("BMW", 40)
         c1.typ("automatic")
         c1.mileage(165, 5)
         mee = c1.get_value()
         Console.WriteLine("")
 
         Console.WriteLine("INFORMATION OF FERRARI : " & vbCrLf)
-        Dim c2 As ferrari = New ferrari("Bmw", 50)
+        Dim c2 As ferrari = New ferrari("FERRARI", 50)
         c2.typ("automatic")
         c2.mileage(175, 5)
         meet = c2.val()
