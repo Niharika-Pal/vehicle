@@ -1,4 +1,4 @@
-IImports System
+Imports System
 
 Module Program
     Class VEHICLE
@@ -11,27 +11,26 @@ Module Program
             speed = 0
         End Sub
 
-        Public Sub New(name As String, sped As Double)
-            n = name
+        Public Sub New(sped As Double)
             speed = sped
-            Console.WriteLine("speed is " & speed)
+            Console.WriteLine("Speed is " & speed)
         End Sub
 
         Public Overridable Sub typ(typ As String)
             type = typ
-            Console.WriteLine("type of vehicle is " & type)
+            Console.WriteLine("Type of vehicle is " & type)
         End Sub
 
 
     End Class
 
-    Class Bmw
+    Class BMW
         Inherits VEHICLE
         Protected mile As Double
 
 
-        Public Sub New(name, sped)
-            MyBase.New("bmw", 40)
+        Public Sub New(sped)
+            MyBase.New(sped)
         End Sub
 
 
@@ -46,7 +45,7 @@ Module Program
 
 
         Public Overrides Sub typ(typ As String)
-            MyBase.typ("automatic")
+            MyBase.typ(typ)
         End Sub
     End Class
 
@@ -55,8 +54,8 @@ Module Program
         Public mil As Double
 
 
-        Public Sub New(name, sped)
-            MyBase.New("ferrari", 60)
+        Public Sub New(sped)
+            MyBase.New(sped)
         End Sub
 
 
@@ -70,7 +69,7 @@ Module Program
         End Function
 
         Public Overrides Sub typ(typ As String)
-            MyBase.typ("automatic")
+            MyBase.typ(typ)
         End Sub
     End Class
 
@@ -79,8 +78,8 @@ Module Program
         Public mil As Double
 
 
-        Public Sub New(name, sped)
-            MyBase.New("AUDI", 70)
+        Public Sub New(sped)
+            MyBase.New(sped)
         End Sub
 
 
@@ -89,12 +88,13 @@ Module Program
             Console.WriteLine("Mileage is " & mil)
         End Sub
 
+
         Public Function val() As Integer
             Return mil
         End Function
 
         Public Overrides Sub typ(typ As String)
-            MyBase.typ("automatic")
+            MyBase.typ(typ)
         End Sub
     End Class
 
@@ -103,25 +103,23 @@ Module Program
         Dim meet As Double
         Dim meetu As Double
         Console.WriteLine("INFORMATION OF BMW : " & vbCrLf)
-        Dim c1 As Bmw = New Bmw("BMW", 40)
-        c1.typ("automatic")
+        Dim c1 As BMW = New BMW(40)
+        c1.typ("Automatic")
         c1.mileage(165, 5)
         mee = c1.get_value()
-        Console.WriteLine("")
 
-        Console.WriteLine("INFORMATION OF FERRARI : " & vbCrLf)
-        Dim c2 As ferrari = New ferrari("FERRARI", 50)
-        c2.typ("automatic")
+        Console.WriteLine(vbCrLf & "INFORMATION OF FERRARI : " & vbCrLf)
+        Dim c2 As ferrari = New ferrari(50)
+        c2.typ("Automatic")
         c2.mileage(175, 5)
         meet = c2.val()
-        Console.WriteLine("")
 
-        Console.WriteLine("INFORMATION OF AUDI : " & vbCrLf)
-        Dim c3 As audi = New audi("AUDI", 70)
+        Console.WriteLine(vbCrLf & "INFORMATION OF AUDI : " & vbCrLf)
+        Dim c3 As audi = New audi(70)
         c3.typ("Automatic")
         c3.mileage(185, 5)
         meetu = c3.val()
-        Console.WriteLine("")
+        Console.WriteLine()
 
         If mee > meet Then
             If mee > meetu Then
